@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+     <h1 id="app">
+         {{title}}
+     </h1>
+
+
+     <h1>clase 2 : rendering declarativo </h1>
+    <!-- <img src="img/rendering.png" alt=""> -->
+
+     <div id="">
+            <p> {{ 1+1+1+1}}</p>
+            <p>{{true || False }}</p>
+         <p>{{ true ? true : false }}</p>
+         <p> {{'string'.toUpperCase}}</p>
+         <p>{{ JSON.stringify({ name : 'Nacho'}})}}</p>
+     </div>
+
+     <div id="app2" v-bind:style="{background: '#'+color }"> atributos dinamicos
+        <p>
+            directibas: son las herramientas de vue para poder manipular el DOM de forma declarativa
+        </p>
+         <p>
+             directivas de flujo condicional
+             v-if, v-else-if, v-else
+             v-show
+         </p>
+         <h1>{{name}}
+             <span v-if=" changePercent > 0 ">   🐵 </span>
+             <span v-else-if="changePercent < 0 "> :(</span>
+             <span v-else> :-/</span>
+
+             <span v-show=" changePercent > 0 ">   🐵 </span>
+             <span v-show="changePercent < 0 "> :(</span>
+             <span v-show="changePercent == 0"> :-/</span>
+
+         </h1>
+         <p>
+             control de flujos con directivas
+             v-for
+         </p>
+         <ul>
+             <li v-for="p in prices" v-bind:key="p">
+                 {{p}}
+             </li>
+         </ul>
+         <ul>
+             <li v-for="(d, i ) in dias" v-bind:key="d">
+                 {{i}} - {{d}}
+             </li>
+         </ul>
+         <ul>
+             <li v-for="(m, i ) in pricesWithDays" v-bind:key="m.day">
+                {{i}} : {{m.day}} - el valor fue {{m.value}}
+             </li>
+         </ul>
+
+         <img  v-on:mouseover="toggleShowPrices"
+               v-on:mouseout="toggleShowPrices"
+               v-bind:src="img" v-bind:alt="name">
+
+           <h1>eventos</h1>
+         <h2>la propiedad methods es un objeto en la instacia d vue donde puedo definir funciones
+             esas funciones se pueden utilizar en diferentes contexto pero principalmente se van a utilizar para
+             atacharse
+             a los evento que van a ser disparado por la vista
+         </h2>
+
+         <span v-on:click="toggleShowPrices">{{showPrices ? ':)' : ':('  }}</span>
+
+
+         <ul v-show ="showPrices">
+             evntos
+
+
+             <li v-for="(m, i ) in pricesWithDays" v-bind:key="m.day">
+                 {{i}} : {{m.day}} - el valor fue {{m.value}}
+             </li>
+         </ul>
+
+         <h2>clases en tiempo real</h2>
+         <h1
+                 v-bind:class="changePercent > 0 ? 'green' : 'red' ">
+             {{name}}
+         </h1>
+
+         <ul v-show ="showPrices">
+             evntos
+
+
+             <li
+                     v-for="(m, i ) in pricesWithDays"
+                     v-bind:key="m.day"
+                     v-bind:class="{orange : m.value == price, red: m.value < price, green: m.value > price }">
+                 {{i}} : {{m.day}} - el valor fue {{m.value}}
+             </li>
+         </ul>
+
+         <h1>propiedades computed</h1>
+         <p> las propiedades computadas son funciones que entregan un valor</p>
+
+
+         <h1
+                 v-bind:class="changePercent > 0 ? 'green' : 'red' ">
+             {{title}}
+         </h1>
+
+
+        <h1>two-way data binding </h1>
+
+         <input type="number" v-model="valor">
+
+         <span> {{convertidorValor}}</span>
+     </div>
+
+
+
+
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+     <script src="script.js"></script>
+</body>
+</html>
