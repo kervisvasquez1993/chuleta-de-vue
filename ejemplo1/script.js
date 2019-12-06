@@ -38,8 +38,6 @@ Vue.component('CoinDetail', {
     mounted () {
         console.log('Mounted CoinDetail...')
     },
-
-
     template: `
     <div>
       <img
