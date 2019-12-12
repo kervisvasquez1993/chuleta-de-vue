@@ -6,6 +6,7 @@
           <span class="font-semibold text-xl tracking-tight">
             <pxicon class="mr-2"></pxicon>
           </span>
+          <p>kervis coin</p>
         </div>
         <div
           class="hidden sm:block w-full block flex-grow lg_flex lg:item-center"
